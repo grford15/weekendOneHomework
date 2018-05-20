@@ -43,10 +43,35 @@ def find_pet_by_name(pets, name)
   return nil
 end
 
-# def remove_pet_by_name(pets, name)
-#   for dog in pets[:pets]
-#     if dog[:name] == name
-#       dog.delete
-#     end
-#   end
-# end
+def remove_pet_by_name(pets, name)
+  dog = find_pet_by_name(pets, name)
+  dog.delete_if{name}
+end
+
+def add_pet_to_stock(pets, newPet)
+ pets[:pets].push(newPet)
+end
+
+def customer_cash(customer)
+ return customer[:cash]
+end
+
+def remove_customer_cash(customer, cash)
+ return customer[:cash] -= cash
+end
+
+def customer_pet_count(customers)
+ return customers[:pets].count()
+end
+
+def add_pet_to_customer(customer, newPet)
+ return customer[:pets].push(newPet)
+end
+
+def customer_can_afford_pet(customer, newPet)
+ if customer[:cash] >= newPet[:price]
+   return true
+ else
+   return false
+ end 
+end
